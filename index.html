@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCTR – PC Troubleshoot & Repair</title>
+<meta name="description" content="Strumento gratuito e portatile per tecnici IT: diagnosi e riparazione di PC Windows da chiavetta USB.">
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<style>
+  :root{--g:#2E3640;--g2:#1F252C;--m:#D4A72C;--mt:#7A5E00;--bg:#F6F6F4;--card:#fff;--tx:#1B1F24;--mut:#5A626C;--bd:#D5D8DC}
+  @media (prefers-color-scheme:dark){:root{--bg:#15181B;--card:#1C2024;--tx:#E6E9EC;--mut:#A3ACB6;--bd:#353B42;--mt:#E0B43A}}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{background:var(--g);color:#fff;border-bottom:4px solid var(--m)}
+  nav{display:flex;align-items:center;gap:12px;padding:16px 0}
+  nav img{height:32px}
+  nav b{font-size:18px;letter-spacing:.5px}
+  nav .sp{flex:1}
+  .lang button{background:transparent;border:1px solid #ffffff66;color:#fff;border-radius:6px;padding:4px 10px;font:inherit;font-size:13px;cursor:pointer}
+  .lang button[aria-pressed=true]{background:var(--m);border-color:var(--m);color:#15181B;font-weight:600}
+  .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;padding:56px 0 64px}
+  .hero h1{font-size:40px;line-height:1.15;margin:0 0 16px;font-weight:650}
+  .hero p{font-size:18px;opacity:.9;margin:0 0 28px;max-width:560px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none}
+  .btn.p{background:var(--m);color:#15181B}
+  .btn.s{border:1px solid #ffffff88;color:#fff;margin-left:8px}
+  .note{font-size:13px;opacity:.75;margin-top:14px}
+  .hero .art{display:flex;justify-content:center}
+  .hero .art img{width:220px;filter:drop-shadow(0 12px 30px #0006)}
+  section{padding:56px 0}
+  h2{font-size:26px;margin:0 0 8px}
+  .lead{color:var(--mut);margin:0 0 28px;max-width:720px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:20px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .card p{margin:0;color:var(--mut);font-size:14px}
+  .card .k{display:inline-block;width:28px;height:4px;background:var(--m);border-radius:2px;margin-bottom:12px}
+  ul.req{margin:0;padding-left:20px;color:var(--mut)}
+  footer{border-top:1px solid var(--bd);padding:28px 0;color:var(--mut);font-size:13px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+  [data-l]{display:none}
+  html[lang=it] [data-l=it],html[lang=en] [data-l=en]{display:revert}
+  @media (max-width:760px){.hero{grid-template-columns:1fr;padding:36px 0}.hero h1{font-size:30px}.hero .art{display:none}.btn.s{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <img src="assets/glyph-mustard.png" alt="">
+      <b>PCTR</b>
+      <span class="sp"></span>
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <button type="button" data-set="it" aria-pressed="true">IT</button>
+        <button type="button" data-set="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+    <div class="hero">
+      <div>
+        <h1><span data-l="it">Diagnosi e riparazione di PC Windows, da chiavetta.</span><span data-l="en">Windows PC diagnostics and repair, from a USB drive.</span></h1>
+        <p><span data-l="it">Uno strumento gratuito per tecnici IT, sistemisti e IT Manager. Si avvia come amministratore dalla chiavetta, analizza hardware, software, sicurezza e tracce forensi, propone le riparazioni e non installa niente sul PC del cliente.</span><span data-l="en">A free tool for IT technicians, system administrators and IT managers. It runs as administrator from a USB drive, analyses hardware, software, security and forensic traces, proposes repairs and installs nothing on the customer's PC.</span></p>
+        <a class="btn p" href="https://github.com/M4ur0K/pctr-releases/releases/latest"><span data-l="it">Scarica</span><span data-l="en">Download</span></a>
+        <a class="btn s" href="#funzioni"><span data-l="it">Cosa fa</span><span data-l="en">What it does</span></a>
+        <div class="note"><span data-l="it">In sviluppo: la prima versione pubblica sarà disponibile in questa pagina.</span><span data-l="en">In development: the first public release will be available on this page.</span></div>
+      </div>
+      <div class="art"><img src="assets/icon-256.png" alt="PCTR"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="funzioni">
+    <div class="wrap">
+      <h2><span data-l="it">Cosa fa</span><span data-l="en">What it does</span></h2>
+      <p class="lead"><span data-l="it">Oltre cento controlli scritti per lavorare senza strumenti esterni, ciascuno con la sua riparazione quando esiste.</span><span data-l="en">More than a hundred checks built to work without external tools, each with its repair where one exists.</span></p>
+      <div class="grid">
+        <div class="card"><span class="k"></span><h3><span data-l="it">Crash e stabilità</span><span data-l="en">Crashes and stability</span></h3><p><span data-l="it">Schermate blu analizzate senza WinDbg, blocchi dei driver e una cronologia di cosa è cambiato prima del problema.</span><span data-l="en">Blue screens analysed without WinDbg, driver hangs and a timeline of what changed before the problem.</span></p></div>
+        <div class="card"><span class="k"></span><h3><span data-l="it">Hardware</span><span data-l="en">Hardware</span></h3><p><span data-l="it">RAM banco per banco, salute dei dischi NVMe e SATA, batteria, temperature, CPU e GPU sotto carico.</span><span data-l="en">RAM stick by stick, NVMe and SATA disk health, battery, temperatures, CPU and GPU under load.</span></p></div>
+        <div class="card"><span class="k"></span><h3><span data-l="it">Sicurezza</span><span data-l="en">Security</span></h3><p><span data-l="it">Secure Boot, TPM, BitLocker, driver vulnerabili, protezioni di Windows e protocolli obsoleti.</span><span data-l="en">Secure Boot, TPM, BitLocker, vulnerable drivers, Windows protections and legacy protocols.</span></p></div>
+        <div class="card"><span class="k"></span><h3><span data-l="it">Analisi forense</span><span data-l="en">Forensics</span></h3><p><span data-l="it">Persistenze, cronologia delle esecuzioni, accessi, dispositivi USB, pacchetto delle prove con hash.</span><span data-l="en">Persistence, execution timeline, logons, USB devices, evidence package with hashes.</span></p></div>
+        <div class="card"><span class="k"></span><h3><span data-l="it">Riparazioni con annullamento</span><span data-l="en">Repairs you can undo</span></h3><p><span data-l="it">Ogni intervento chiede conferma, salva un backup, viene verificato e si può annullare.</span><span data-l="en">Every action asks for confirmation, saves a backup, is verified and can be undone.</span></p></div>
+        <div class="card"><span class="k"></span><h3><span data-l="it">Impara dai casi</span><span data-l="en">Learns from cases</span></h3><p><span data-l="it">Una base di conoscenza "problema → soluzioni" che registra quali rimedi hanno funzionato davvero.</span><span data-l="en">A "problem → solutions" knowledge base that records which fixes actually worked.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid">
+      <div>
+        <h2><span data-l="it">Requisiti</span><span data-l="en">Requirements</span></h2>
+        <ul class="req">
+          <li><span data-l="it">Windows 10 o 11, x64 (ARM64 in arrivo)</span><span data-l="en">Windows 10 or 11, x64 (ARM64 coming)</span></li>
+          <li><span data-l="it">Diritti di amministratore sul PC da analizzare</span><span data-l="en">Administrator rights on the PC being analysed</span></li>
+          <li><span data-l="it">Una chiavetta USB; consigliata la cifratura BitLocker To Go</span><span data-l="en">A USB drive; BitLocker To Go encryption recommended</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2><span data-l="it">Privacy</span><span data-l="en">Privacy</span></h2>
+        <p class="lead"><span data-l="it">PCTR non invia dati di utilizzo. All'avvio può controllare se esiste una versione nuova (disattivabile). L'analisi con intelligenza artificiale è facoltativa e usa la chiave del tecnico.</span><span data-l="en">PCTR sends no usage data. At startup it can check for a new version (can be turned off). AI analysis is optional and uses the technician's own key.</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mauro Cappa · <span data-l="it">Software gratuito, tutti i diritti riservati.</span><span data-l="en">Free software, all rights reserved.</span></span>
+    <span>PCTR – PC Troubleshoot &amp; Repair</span>
+  </div>
+</footer>
+<script>
+  (function(){
+    var saved=null; try{saved=localStorage.getItem('pctr-lang')}catch(e){}
+    var lang=saved||((navigator.language||'it').slice(0,2)==='it'?'it':'en');
+    function set(l){document.documentElement.lang=l;document.querySelectorAll('[data-set]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l)});try{localStorage.setItem('pctr-lang',l)}catch(e){}}
+    document.querySelectorAll('[data-set]').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+    set(lang);
+  })();
+</script>
+</body>
+</html>
